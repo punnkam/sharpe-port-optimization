@@ -36,19 +36,13 @@ def get_data(symbols, date_lookback=3):
 
 	return df
 
+def normalize_data(df):
+	return df/df.loc[df.index[0]]
 
 def plot_data(data, title="Portfolio Performance"):
-	plt.plot(data, title=title)
-
-
-def normalize_data(data):
-	return
-
-def main():
-	symbols = ['AAPL', 'MSFT']
-	df = get_data(symbols, 2)
-	print(df)
-
-
-if __name__ == '__main__':
-	main()
+	ax = plt.plot(data, title=title)
+	ax.set_xlabel("Date")
+	ax.set_ylabel("Price")
+	
+	plt.show()
+ 
